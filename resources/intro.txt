@@ -1,0 +1,54 @@
+
+*******************************************************************
+Welcome to my CSC 301 Programming Project REPL!
+*******************************************************************
+
+This project is a Clojure implementation of the simulated annealing
+heuristic applied to the Travelling Salesman problem. 
+
+Please wait a moment while the initial state of the map and solutions
+are generated, and you'll recieve your first prompt of the form:
+	tsp->> 
+Once you recieve this prompt you can begin interacting with the project's
+read-evaluate-print loop (REPL)
+
+Type s, g, or m to print the current simulated-annealing solution, 
+greedy solution, and state of the map respectively.
+
+Every other action you can take requires function calls as s-expressions:
+(fn arg1 arg2...)
+
+The functions you will likely need are:
+    (create-map <num_nodes>): generate a new map [in global var 'm']
+    	    with the specified number of nodes
+    (read-map <file-name>): read a map from a txt file in the same directory
+    	    as this project's executable. The filename in this fn call should
+	    be a string eg "map.txt" and the format of the file should be
+	       <city-name> <x-coord> <y-coord>
+	       <city-name> <x-coord> <y-coord>
+	       ...
+	    The file map.txt is included in the project directory as an ex.
+    (build-sltns)/(build-sltns <init-temp> <min-temp> <cool-rate> <iter>):
+            sets global vars g and s to the results of applying the
+	    greedy and simulated annealing algorithms to the the map
+	    referred to in global var m. If you don't specify parameters
+	    for the annealing defaults are used otherwise the values you
+	    provide will be used. NB cool-rate should be a decimal
+	    referring to the decay rate of the temperature of the
+	    system: eg 0.95 would mean that temp[i+1] = 0.95*temp[i]
+    (comp-sltns): compare the fitness of the solutions g and s
+    (visualize): generate svg files of the greedy and annealing solutions to
+            the current problem instance, which you can view in your browser.
+    
+All the other functions you can use can be listed using the command (help),
+and the documentation and arglist for a function can be retrieved using
+(help '<fn-name>), eg (help 'build-sltns) [make sure that you type ' before the fn name]
+
+**Recommended Workflow**
+  generate a map of the desired number of nodes with (create-map <num-nodes>)
+  build the solutions s and g using (build-sltns) with the desired annealing params
+  	eg (build-sltns 1000 0.5 0.95 100)
+  view the results of the greedy and annealing solutions g and s using (comp-sltns)
+  visualize these results with (visualize)
+
+***********************************************************************************
