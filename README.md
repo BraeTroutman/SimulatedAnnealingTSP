@@ -3,6 +3,8 @@
 This project is an application of the simulated annealing heuristic technique to
 the Travelling Salesman Problem.  
 
+This project was developed using Emacs along with the Cider Clojure package.
+
 ## Usage
 
    You can find the uberjar executable in target/uberjar/
