@@ -5,6 +5,8 @@ the Travelling Salesman Problem.
 
 ## Usage
 
+    You can find the uberjar executable in target/uberjar/
+
     $ java -jar tsp-0.1.0-standalone.jar [args]
 
 ## Layout
